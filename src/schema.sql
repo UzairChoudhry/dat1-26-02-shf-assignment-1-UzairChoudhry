@@ -24,7 +24,8 @@ CREATE TABLE locations (
     name TEXT NOT NULL,
     address TEXT NOT NULL,
     phone_number TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL
+        CHECK (email LIKE '%@%.%'),   -- forces email to contain @ symbol and a . so email is valid address
     opening_hours TEXT NOT NULL
 );
 
@@ -32,7 +33,8 @@ CREATE TABLE members (
     member_id INTEGER PRIMARY KEY,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL
+        CHECK (email LIKE '%@%.%'),
     phone_number TEXT NOT NULL,
     date_of_birth DATE NOT NULL,
     join_date DATE DEFAULT CURRENT_DATE,
@@ -44,7 +46,8 @@ CREATE TABLE staff (
     staff_id INTEGER PRIMARY KEY,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL
+            CHECK (email LIKE '%@%.%'),
     phone_number TEXT NOT NULL,
     position TEXT NOT NULL 
         CHECK (position IN ('Trainer','Manager','Receptionist','Maintenance')),
@@ -157,7 +160,7 @@ CREATE TABLE personal_training_sessions (
 );
 
 CREATE TABLE member_health_metrics (
-    metric_id INTEGER PRIMARY_KEY,
+    metric_id INTEGER PRIMARY KEY,
     member_id INTEGER NOT NULL,
     measurement_date DATE NOT NULL,
     weight FLOAT,

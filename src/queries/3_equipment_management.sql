@@ -14,7 +14,7 @@ GROUP BY type;
 
 -- 3.3 
 SELECT type AS equipment_type,
-    AVG(julianday('now') - julianday(purchase_date)) AS average_age -- works out the average days using the current date and time
+    AVG(julianday('now') - julianday(purchase_date)) AS avg_age_days -- works out the average days using the current date and time
 FROM equipment
 GROUP BY type;
 

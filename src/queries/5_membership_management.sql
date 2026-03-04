@@ -26,4 +26,4 @@ SELECT m.member_id, m.first_name, m.last_name, m.email, ms.end_date
 FROM memberships AS ms
 JOIN members AS m 
     ON ms.member_id = m.member_id
-WHERE ms.end_date BETWEEN '2025-01-01' AND '2025-12-31';-- oly end dates in 2025
+WHERE ms.end_date BETWEEN '2025-01-01' AND '2025-12-31';

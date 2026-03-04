@@ -41,7 +41,7 @@ LEFT JOIN(  -- show all results even without any visits
     SELECT
         location_id,
         DATE(check_in_time) AS visit_date,
-        COUNT(*) AS daily_visits    -- number of rows is the number of visits
+        COUNT(*) aS daily_visits    -- number of rows is the number of visits
     FROM attendance
     GROUP BY location_id, DATE(check_in_time)) AS dc
 ON l.location_id = dc.location_id
